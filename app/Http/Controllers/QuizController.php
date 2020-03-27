@@ -39,4 +39,8 @@ class QuizController extends Controller
 
         return;
     }
+
+    public function leaderboard(Quiz $quiz){
+        return view('quiz.leaderboard', compact('quiz'));
+    }
 }
