@@ -36,8 +36,8 @@
             {{round.name}} Round
             <br />Complete!
           </h2>
-          <p class="text-gray-600 font-medium mt-6 leading-loose">
-            <span class="text-xl">Go and grab a drink... 🍻🍷🍹</span>
+          <p class="text-gray-500 font-medium mt-6 leading-loose">
+            <span class="text-xl text-gray-600">Go and grab a drink... 🍻🍷🍹</span>
             <br />When everyone is ready click the button below to continue to the next round!
           </p>
           <div class="mt-8 flex justify-center">
@@ -94,7 +94,7 @@ export default {
   data: function() {
     return {
       number_of_questions: this.round.questions.length,
-      question_number: 6,
+      question_number: 1,
       seconds: 20,
       selected_answer: null,
       next_round: parseInt(this.round.id) + 1,
