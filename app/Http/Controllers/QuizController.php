@@ -41,6 +41,7 @@ class QuizController extends Controller
     }
 
     public function leaderboard(Quiz $quiz){
+        $quiz = QuizScore::all();
         return view('quiz.leaderboard', compact('quiz'));
     }
 }

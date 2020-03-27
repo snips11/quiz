@@ -15,22 +15,22 @@
                             Name
                         </th>
                         <th
-                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                            class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider text-right">
                             Score
                         </th>
-                        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($quiz as $quiz)
                     <tr class="bg-white">
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                             Bernard Lane
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                            <a href="#"
-                                class="text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline">Edit</a>
+
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
