@@ -41,7 +41,7 @@ class QuizController extends Controller
     }
 
     public function leaderboard(Quiz $quiz){
-        $quiz = QuizScore::->orderBy('score', 'desc')->get();
+        $quiz = QuizScore::orderBy('score', 'desc')->get();
         return view('quiz.leaderboard', compact('quiz'));
     }
 }
