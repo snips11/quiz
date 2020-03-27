@@ -44,16 +44,7 @@
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
-                                    <a href="#"
-                                        class="px-3 py-2 rounded-md text-sm font-medium text-white bg-indigo-800 focus:outline-none focus:text-white focus:bg-indigo-600">Dashboard</a>
-                                    <a href="#"
-                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Team</a>
-                                    <a href="#"
-                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Projects</a>
-                                    <a href="#"
-                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Calendar</a>
-                                    <a href="#"
-                                        class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Reports</a>
+
                                 </div>
                             </div>
                         </div>
@@ -85,16 +76,7 @@
                 </div>
                 <div class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 sm:px-3">
-                        <a href="#"
-                            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-800 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
-                        <a href="#"
-                            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Team</a>
-                        <a href="#"
-                            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Projects</a>
-                        <a href="#"
-                            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Calendar</a>
-                        <a href="#"
-                            class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600">Reports</a>
+
                     </div>
                     <div class="pt-4 pb-3 border-t border-gray-700">
                         <div class="flex items-center px-5">
@@ -107,22 +89,14 @@
                             </div>
                         </div>
                         <div class="mt-3 px-2" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                            <a href="#"
-                                class="block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600"
-                                role="menuitem">Your Profile</a>
-                            <a href="#"
-                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600"
-                                role="menuitem">Settings</a>
-                            <a href="#"
-                                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-300 hover:text-white hover:bg-indigo-600 focus:outline-none focus:text-white focus:bg-indigo-600"
-                                role="menuitem">Sign out</a>
+
                         </div>
                     </div>
                 </div>
             </nav>
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <h1 class="text-3xl font-bold leading-tight text-gray-900">
+                    <h1 class="text-3xl font-bold leading-tight text-gray-800">
                         Hey, {{auth()->user()->name}}!
                     </h1>
                 </div>
