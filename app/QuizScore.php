@@ -9,4 +9,8 @@ class QuizScore extends Model
     protected $fillable = [
         'score',
     ];
+
+    public function quiz(){
+        return $this->belongsTo('App\Quiz');
+     }
 }
