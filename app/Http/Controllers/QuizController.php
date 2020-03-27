@@ -8,6 +8,7 @@ use App\User;
 use App\Round;
 use App\QuizScore;
 use App\Answer;
+use App\QuizAnswer;
 
 class QuizController extends Controller
 {
@@ -24,7 +25,12 @@ class QuizController extends Controller
         foreach($request->answers as $answer){
             if(Answer::checkIfCorrect($answer)){
                 $score ++;
-            }     
+            }
+            QuizAnswer::create([
+                'user_id' => auth()->user()->id,
+                'option_id' => $answer['answer'],
+                'question_id' => $answer['question']
+            ]);     
         }
 
         $quiz_score->update([

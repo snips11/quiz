@@ -9,24 +9,44 @@
       {{ question_number }}/{{ number_of_questions }}
     </h3>
     <div v-if="question_number > number_of_questions">
-      <div class="bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6">
-        <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-          <h2
-            class="text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-          >
-            {{round.name}} Round
-            <br />Complete!
-          </h2>
-          <p class="text-gray-600 font-medium mt-6 leading-loose">
-            <span class="text-xl">Go and grab a drink... 🍻🍷🍹</span>
-            <br />When everyone is ready click the button below to continue to the next round!
-          </p>
-          <div class="mt-8 flex justify-center">
-            <div class="inline-flex rounded-md shadow">
-              <button
-                @click="submitAnswers"
-                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-              >Next Round</button>
+      <div v-if="this.round == 4">
+        <div class="bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6">
+          <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <h2
+              class="text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+            >We are complete!</h2>
+            <p class="text-gray-600 font-medium mt-6 leading-loose">Lets go see the scores!!!</p>
+            <div class="mt-8 flex justify-center">
+              <div class="inline-flex rounded-md shadow">
+                <button
+                  :href="'/quiz/' + this.quiz + '/leaderboard/'"
+                  class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                >Scores</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else>
+        <div class="bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6">
+          <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <h2
+              class="text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+            >
+              {{round.name}} Round
+              <br />Complete!
+            </h2>
+            <p class="text-gray-600 font-medium mt-6 leading-loose">
+              <span class="text-xl">Go and grab a drink... 🍻🍷🍹</span>
+              <br />When everyone is ready click the button below to continue to the next round!
+            </p>
+            <div class="mt-8 flex justify-center">
+              <div class="inline-flex rounded-md shadow">
+                <button
+                  @click="submitAnswers"
+                  class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                >Next Round</button>
+              </div>
             </div>
           </div>
         </div>
@@ -75,7 +95,7 @@ export default {
   data: function() {
     return {
       number_of_questions: this.round.questions.length,
-      question_number: 1,
+      question_number: 6,
       seconds: 60,
       selected_answer: null,
       next_round: parseInt(this.round.id) + 1,

@@ -19,9 +19,9 @@
         </p>
         <div class="mt-8 flex justify-center">
             <div class="inline-flex rounded-md shadow">
-                <button href="/quiz/1/quiz-master/1/round/1" disabled
+                <a href="/quiz/1/quiz-master/1/round/1"
                     class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">Start
-                    Quiz</button>
+                    Quiz</a>
             </div>
         </div>
     </div>
