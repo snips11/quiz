@@ -4,7 +4,9 @@
 
 <div class="min-h-screen bg-blue-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <img class="mx-auto h-20 w-auto" src="/images/logo.jpeg" alt="{{ env('APP_NAME')}}" />
+        <img class="mx-auto h-20 w-auto"
+            src="https://www.socialshakeupshow.com/wp-content/uploads/2019/07/shutterstock_1135277165.jpg"
+            alt="{{ env('APP_NAME')}}" />
         <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
             Sign in to your account
         </h2>
