@@ -97,7 +97,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.startCountdown();
@@ -109,8 +108,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     return _ref = {
       number_of_questions: this.round.questions.length,
-      question_number: 1,
-      seconds: 20,
+      question_number: 6,
+      seconds: 5,
       selected_answer: null,
       next_round: parseInt(this.round.id) + 1
     }, _defineProperty(_ref, "selected_answer", null), _defineProperty(_ref, "answers", []), _ref;
@@ -130,7 +129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.storeAnswer(this.question_number - 1, this.selected_answer);
           this.selected_answer = null;
           this.question_number++;
-          this.seconds = 60;
+          this.seconds = 30;
           this.startCountdown();
         }
       }
@@ -208,120 +207,116 @@ var render = function() {
     _vm._v(" "),
     _vm.question_number > _vm.number_of_questions
       ? _c("div", [
-          this.round == 4
-            ? _c("div", [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
-                      },
-                      [
+          this.round.id == 4
+            ? _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass:
+                            "text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+                        },
+                        [_vm._v("We are complete!")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticClass:
+                            "text-gray-600 font-medium mt-6 leading-loose"
+                        },
+                        [_vm._v("Lets go see the scores!!!")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-8 flex justify-center" }, [
                         _c(
-                          "h2",
-                          {
-                            staticClass:
-                              "text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-                          },
-                          [_vm._v("We are complete!")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass:
-                              "text-gray-600 font-medium mt-6 leading-loose"
-                          },
-                          [_vm._v("Lets go see the scores!!!")]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "mt-8 flex justify-center" }, [
-                          _c(
-                            "div",
-                            { staticClass: "inline-flex rounded-md shadow" },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
-                                  attrs: {
-                                    href: "/quiz/" + this.quiz + "/leaderboard/"
-                                  }
-                                },
-                                [_vm._v("Scores")]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ])
-            : _c("div", [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
-                      },
-                      [
-                        _c(
-                          "h2",
-                          {
-                            staticClass:
-                              "text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
-                          },
+                          "div",
+                          { staticClass: "inline-flex rounded-md shadow" },
                           [
-                            _vm._v(
-                              "\n            " +
-                                _vm._s(_vm.round.name) +
-                                " Round\n            "
-                            ),
-                            _c("br"),
-                            _vm._v("Complete!\n          ")
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
+                                attrs: {
+                                  href: "/quiz/" + this.quiz + "/leaderboard/"
+                                }
+                              },
+                              [_vm._v("Scores")]
+                            )
                           ]
-                        ),
-                        _vm._v(" "),
-                        _vm._m(0),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "mt-8 flex justify-center" }, [
-                          _c(
-                            "div",
-                            { staticClass: "inline-flex rounded-md shadow" },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
-                                  on: { click: _vm.submitAnswers }
-                                },
-                                [_vm._v("Next Round")]
-                              )
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  ]
-                )
-              ])
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+                    },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass:
+                            "text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+                        },
+                        [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(_vm.round.name) +
+                              " Round\n          "
+                          ),
+                          _c("br"),
+                          _vm._v("Complete!\n        ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-8 flex justify-center" }, [
+                        _c(
+                          "div",
+                          { staticClass: "inline-flex rounded-md shadow" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
+                                on: { click: _vm.submitAnswers }
+                              },
+                              [_vm._v("Next Round")]
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              )
         ])
       : _c(
           "div",
@@ -430,7 +425,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("br"),
         _vm._v(
-          "When everyone is ready click the button below to continue to the next round!\n          "
+          "When everyone is ready click the button below to continue to the next round!\n        "
         )
       ]
     )
