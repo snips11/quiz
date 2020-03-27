@@ -21,13 +21,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($quiz as $quiz)
+                    @foreach ($quiz as $q)
                     <tr class="bg-white">
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                            Bernard Lane
+                            {{$q->user->name}}
                         </td>
                         <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-
+                            {{$q->score}}
                         </td>
                     </tr>
                     @endforeach

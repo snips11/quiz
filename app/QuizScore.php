@@ -13,4 +13,8 @@ class QuizScore extends Model
     public function quiz(){
         return $this->belongsTo('App\Quiz');
      }
+
+     public function user(){
+        return $this->belongsTo('App\User');
+     }
 }
