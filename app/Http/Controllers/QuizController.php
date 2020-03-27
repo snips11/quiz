@@ -18,7 +18,7 @@ class QuizController extends Controller
     }
 
     public function store(Quiz $quiz, User $user, Round $round, Request $request){
-        $quiz_score = QuizScore::where('user_id', $user->id)->where('quiz_id', $quiz->id)->first();
+        $quiz_score = QuizScore::where('user_id', auth()->user()->id)->where('quiz_id', $quiz->id)->first();
 
         $score = $quiz_score->score;
 
