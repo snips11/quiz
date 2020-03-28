@@ -415,20 +415,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "p",
-      { staticClass: "text-gray-500 font-medium mt-6 leading-loose" },
-      [
-        _c("span", { staticClass: "text-xl text-gray-600" }, [
-          _vm._v("Go and grab a drink... 🍻🍷🍹")
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(
-          "When everyone is ready click the button below to continue to the next round!\n        "
-        )
-      ]
-    )
+    return _c("p", { staticClass: "text-gray-500 mt-6 leading-loose" }, [
+      _c("span", { staticClass: "text-xl text-gray-600 font-medium" }, [
+        _vm._v("Go and grab a drink... 🍻🍷🍹")
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(
+        "When everyone is ready click the button below to continue to the next round!\n        "
+      )
+    ])
   }
 ]
 render._withStripped = true
