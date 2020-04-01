@@ -26,7 +26,7 @@
 </h3>
 <div class="bg-white shadow mb-10 overflow-hidden sm:rounded-md">
     <ul>
-        @foreach($quiz->quizmasters as $master)
+        @forelse($quiz->quizmasters as $master)
         @if($master->user_id != auth()->user()->id)
         <li>
             <a @if(!$master->score->completed_at) href="/quiz/{{$quiz->id}}/quiz-master/{{$master->score->user->id}}"
@@ -78,7 +78,9 @@
             </a>
         </li>
         @endif
-        @endforeach
+        @empty
+        <p>No quizes have been added yet, won't be long!</p>
+        @endforelse
     </ul>
 </div>
 <h3 class="text-2xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 mb-6">
