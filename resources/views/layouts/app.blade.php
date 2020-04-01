@@ -38,9 +38,11 @@
                     <div class="flex items-center justify-between h-16">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-12 w-12 rounded-full"
-                                    src="https://www.socialshakeupshow.com/wp-content/uploads/2019/07/shutterstock_1135277165.jpg"
-                                    alt="Quiz" />
+                                <a href="/">
+                                    <img class="h-12 w-12 rounded-full"
+                                        src="https://www.socialshakeupshow.com/wp-content/uploads/2019/07/shutterstock_1135277165.jpg"
+                                        alt="Quiz" />
+                                </a>
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline">
