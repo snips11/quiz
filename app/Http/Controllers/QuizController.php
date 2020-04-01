@@ -48,7 +48,9 @@ class QuizController extends Controller
     }
 
     public function show(Quiz $quiz){
-        $quiz->load(['users', 'quizMasters.score' => function ($query) {
+        $quiz->load(['users' => function ($query) {
+            $query->orderBy('pivot_score', 'desc');
+        }, 'quizMasters.score' => function ($query) {
             $query->where('user_id', auth()->user()->id)->with('user');
         }]);
         return view('quiz.show', compact('quiz'));
