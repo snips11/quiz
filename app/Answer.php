@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+
+    protected $guarded = [];
+    
     public static function checkIfCorrect($answer){
         $question = Question::where('id', $answer['question'])->with('answer')->first();
         

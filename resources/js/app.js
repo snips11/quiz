@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("quiz-component", () => import("./components/QuizComponent"));
+Vue.component("quiz-create-component", () => import("./components/QuizCreateComponent"));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

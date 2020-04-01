@@ -49447,6 +49447,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component("quiz-component", function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/QuizComponent */ "./resources/js/components/QuizComponent.vue"));
 });
+Vue.component("quiz-create-component", function () {
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/QuizCreateComponent */ "./resources/js/components/QuizCreateComponent.vue"));
+});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

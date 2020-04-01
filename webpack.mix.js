@@ -18,5 +18,5 @@ mix.react('resources/js/app.js', 'public/js')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
-    })
-    .browserSync('quiz.pgm');
+    });
+// .browserSync('quiz.pgm');

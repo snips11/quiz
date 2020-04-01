@@ -9,6 +9,10 @@ use App\Round;
 use App\QuizScore;
 use App\Answer;
 use App\QuizAnswer;
+use App\QuizMaster;
+use Carbon\Carbon;
+use App\Question;
+use App\Option;
 
 class QuizController extends Controller
 {
@@ -47,8 +51,51 @@ class QuizController extends Controller
         return back();
     }
 
+    public function createQuiz(Quiz $quiz){
+        return view('quiz.create', compact('quiz'));
+    }
+
+    public function storeQuiz(Quiz $quiz, Request $request){
+
+        $quiz_master = QuizMaster::create([
+            "quiz_id" => $quiz->id,
+            "user_id" => auth()->user()->id,
+            "quiz_date" => Carbon::now()
+        ]);
+
+        foreach($request->rounds as $round){
+
+            $created_round = Round::create([
+                "quiz_master_id" => $quiz_master->id,
+                "name" => $round['round']
+            ]);
+
+            foreach ($round['questions'] as $key => $question) {
+
+                $created_question = Question::create([
+                    "round_id" => $created_round->id,
+                    "question" => $question['question']
+                ]);
+
+                foreach ($question['options'] as $key => $option) {
+                    $option = Option::create([
+                        "option" => $option,
+                        "question_id" => $created_question->id
+                    ]);
+
+                    if($key == $question['answer']){
+                        Answer::create([
+                            "option_id" => $option->id,
+                            "question_id" => $created_question->id
+                        ]);
+                    }
+                }
+            }
+        }
+    }
+
     public function show(Quiz $quiz){
-        $quiz->load(['users' => function ($query) {
+        $quiz->load(['quizMasters.user', 'users' => function ($query) {
             $query->orderBy('pivot_score', 'desc');
         }, 'quizMasters.score' => function ($query) {
             $query->where('user_id', auth()->user()->id)->with('user');

@@ -30,3 +30,5 @@ Route::get('/quiz/{quiz}/quiz-master/{user}', 'QuizController@showMaster')->name
 Route::get('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@index')->name('quiz')->middleware('auth');
 Route::get('/quiz/{quiz}/leaderboard', 'QuizController@leaderboard')->name('quiz_leaderboard')->middleware('auth');
 Route::post('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@store')->name('post_quiz')->middleware('auth');
+Route::get('/quiz/{quiz}/create-quiz', 'QuizController@createQuiz')->name('create_quiz')->middleware('auth');
+Route::post('/quiz/{quiz}/create-quiz', 'QuizController@storeQuiz')->name('store_quiz')->middleware('auth');
