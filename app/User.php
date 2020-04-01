@@ -37,7 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function quiz_scores(){
+    public function scores(){
        return $this->hasMany('App\QuizScore');
+    }
+    
+    public function quizes()
+    {
+        return $this->belongsToMany('App\Quiz', 'quiz_users');
     }
 }

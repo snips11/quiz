@@ -18,6 +18,8 @@ class CreateQuizScoresTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('quiz_id')->unsigned();
             $table->integer('score')->unsigned()->default(0);
+            $table->integer('quiz_master_id')->unsigned();
+            $table->dateTime('completed_at');
             $table->timestamps();
         });
     }

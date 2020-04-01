@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@index')->name('quiz');
+Route::get('/create-quiz-league', 'QuizController@createLeague')->name('create_league')->middleware('auth');
+Route::post('/create-quiz-league', 'QuizController@storeLeague')->name('store_league')->middleware('auth');
+Route::get('/join-quiz-league', 'QuizController@joinLeague')->name('join_league')->middleware('auth');
+Route::post('/join-quiz-league', 'QuizController@storeJoinLeague')->name('store_join_league')->middleware('auth');
+Route::get('/quiz/{quiz}', 'QuizController@show')->name('quiz_show')->middleware('auth');
+Route::get('/quiz/{quiz}/quiz-master/{user}', 'QuizController@showMaster')->name('quiz_show_master')->middleware('auth');
+Route::get('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@index')->name('quiz')->middleware('auth');
 Route::get('/quiz/{quiz}/leaderboard', 'QuizController@leaderboard')->name('quiz_leaderboard')->middleware('auth');
-Route::post('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@store')->name('post_quiz');
+Route::post('/quiz/{quiz}/quiz-master/{user}/round/{round}', 'QuizController@store')->name('post_quiz')->middleware('auth');

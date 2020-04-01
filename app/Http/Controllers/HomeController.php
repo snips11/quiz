@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = auth()->user()->load('quiz_scores.quiz');
+        $user = auth()->user()->load('quizes');
         return view('home', compact('user'));
     }
 }
