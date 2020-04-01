@@ -27,8 +27,8 @@
 <div class="bg-white shadow mb-10 overflow-hidden sm:rounded-md">
     <ul>
         @foreach($quiz->quizmasters as $master)
+        @if($master->user_id != auth()->user()->id)
         <li>
-
             <a @if(!$master->score->completed_at) href="/quiz/{{$quiz->id}}/quiz-master/{{$master->score->user->id}}"
                 @else href="#" @endif
                 class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
@@ -77,6 +77,7 @@
                 </div>
             </a>
         </li>
+        @endif
         @endforeach
     </ul>
 </div>
