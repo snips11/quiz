@@ -79,7 +79,7 @@
         </li>
         @endif
         @empty
-        <p>No quizes have been added yet, won't be long!</p>
+        <li class="border-none text-gray-800 shadow-none">No quizes have been added yet, won't be long!</li>
         @endforelse
     </ul>
 </div>
