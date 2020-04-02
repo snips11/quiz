@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<quiz-component :round="{{$round}}" quiz={{$quiz->id}} master={{$user->id}}></quiz-component>
+<quiz-component :round="{{$round}}" quiz={{$quiz->id}} master={{$quiz_master->id}}></quiz-component>
 @endsection

@@ -29,18 +29,18 @@
         @forelse($quiz->quizmasters as $master)
         @if($master->user_id != auth()->user()->id)
         <li>
-            <a @if(!$master->score->completed_at) href="/quiz/{{$quiz->id}}/quiz-master/{{$master->score->user->id}}"
+            <a @if(!$master->score) href="/quiz/{{$quiz->id}}/quiz-master/{{$master->id}}"
                 @else href="#" @endif
                 class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
                 <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="min-w-0 flex-1 flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="h-12 w-12 rounded-full" src="{{$master->score->user->avatar}}" alt="" />
+                            <img class="h-12 w-12 rounded-full" src="{{$master->user->avatar}}" alt="" />
                         </div>
                         <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                             <div class="flex items-center">
                                 <div class="text-base leading-5 font-medium text-indigo-600 truncate">
-                                    {{$master->score->user->name}}</div>
+                                    {{$master->user->name}}</div>
                             </div>
                             <div class="hidden md:block">
                                 <div>
@@ -48,7 +48,7 @@
                                         Created
                                         <time datetime="2020-01-07">{{$master->created_at->format('d/m/Y')}}</time>
                                     </div>
-                                    @if($master->score->completed_at)
+                                    @if($master->score)
                                     <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
                                         <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400" fill="currentColor"
                                             viewBox="0 0 20 20">

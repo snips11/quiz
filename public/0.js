@@ -109,9 +109,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return _ref = {
       number_of_questions: this.round.questions.length,
       question_number: 1,
-      seconds: 20,
+      seconds: 15,
       selected_answer: null,
-      next_round: parseInt(this.round.id) + 1
+      next_round: parseInt(this.round.round) + 1
     }, _defineProperty(_ref, "selected_answer", null), _defineProperty(_ref, "answers", []), _ref;
   },
   methods: {
@@ -129,7 +129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.storeAnswer(this.question_number - 1, this.selected_answer);
           this.selected_answer = null;
           this.question_number++;
-          this.seconds = 20;
+          this.seconds = 15;
           this.startCountdown();
         }
       }

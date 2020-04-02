@@ -185,17 +185,6 @@ __webpack_require__.r(__webpack_exports__);
           question: "",
           options: ["", "", "", ""],
           answer: ""
-        }]
-      }, {
-        round: "",
-        questions: [{
-          question: "",
-          options: ["", "", "", ""],
-          answer: ""
-        }, {
-          question: "",
-          options: ["", "", "", ""],
-          answer: ""
         }, {
           question: "",
           options: ["", "", "", ""],
@@ -223,10 +212,53 @@ __webpack_require__.r(__webpack_exports__);
           question: "",
           options: ["", "", "", ""],
           answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
         }]
       }, {
         round: "",
         questions: [{
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }]
+      }, {
+        round: "",
+        questions: [{
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
+          question: "",
+          options: ["", "", "", ""],
+          answer: ""
+        }, {
           question: "",
           options: ["", "", "", ""],
           answer: ""
@@ -473,97 +505,97 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._l(_vm.rounds[index].questions, function(
-                              option,
-                              o
-                            ) {
-                              return _c(
-                                "div",
-                                {
-                                  key: o,
-                                  staticClass:
-                                    "mt-4 flex flex-row items-center border-none"
-                                },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value:
-                                          _vm.rounds[index].questions[i]
-                                            .options[o],
-                                        expression:
-                                          "rounds[index].questions[i].options[o]"
-                                      }
-                                    ],
+                            _vm._l(
+                              _vm.rounds[index].questions[i].options,
+                              function(option, o) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: o,
                                     staticClass:
-                                      "form-input w-1/2 block sm:text-sm sm:leading-5 mr-4",
-                                    attrs: {
-                                      id: "name",
-                                      placeholder: "Option ".concat(i + 1),
-                                      name: "name"
-                                    },
-                                    domProps: {
-                                      value:
-                                        _vm.rounds[index].questions[i].options[
-                                          o
-                                        ]
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
+                                      "mt-4 flex flex-row items-center border-none"
+                                  },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.rounds[index].questions[i]
+                                              .options[o],
+                                          expression:
+                                            "rounds[index].questions[i].options[o]"
                                         }
-                                        _vm.$set(
-                                          _vm.rounds[index].questions[i]
-                                            .options,
-                                          o,
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
+                                      ],
+                                      staticClass:
+                                        "form-input w-1/2 block sm:text-sm sm:leading-5 mr-4",
+                                      attrs: {
+                                        id: "name",
+                                        placeholder: "Option ".concat(i + 1),
+                                        name: "name"
+                                      },
+                                      domProps: {
                                         value:
-                                          _vm.rounds[index].questions[i].answer,
-                                        expression:
-                                          "rounds[index].questions[i].answer"
+                                          _vm.rounds[index].questions[i]
+                                            .options[o]
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.rounds[index].questions[i]
+                                              .options,
+                                            o,
+                                            $event.target.value
+                                          )
+                                        }
                                       }
-                                    ],
-                                    staticClass: "mr-2",
-                                    attrs: {
-                                      id: "name",
-                                      type: "radio",
-                                      placeholder: "Question ".concat(o + 1)
-                                    },
-                                    domProps: {
-                                      value: o,
-                                      checked: _vm._q(
-                                        _vm.rounds[index].questions[i].answer,
-                                        o
-                                      )
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        return _vm.$set(
-                                          _vm.rounds[index].questions[i],
-                                          "answer",
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.rounds[index].questions[i]
+                                              .answer,
+                                          expression:
+                                            "rounds[index].questions[i].answer"
+                                        }
+                                      ],
+                                      staticClass: "mr-2",
+                                      attrs: {
+                                        id: "name",
+                                        type: "radio",
+                                        placeholder: "Question ".concat(o + 1)
+                                      },
+                                      domProps: {
+                                        value: o,
+                                        checked: _vm._q(
+                                          _vm.rounds[index].questions[i].answer,
                                           o
                                         )
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.$set(
+                                            _vm.rounds[index].questions[i],
+                                            "answer",
+                                            o
+                                          )
+                                        }
                                       }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("p", [_vm._v("Correct Answer")])
-                                ]
-                              )
-                            })
+                                    }),
+                                    _vm._v(" "),
+                                    _c("p", [_vm._v("Correct Answer")])
+                                  ]
+                                )
+                              }
+                            )
                           ],
                           2
                         )
@@ -685,7 +717,7 @@ var render = function() {
                   {
                     staticClass:
                       "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5",
-                    attrs: { href: "/quiz/" + _vm.quiz.id }
+                    attrs: { href: "/quiz/" + _vm.quiz }
                   },
                   [_vm._v("Go home")]
                 )

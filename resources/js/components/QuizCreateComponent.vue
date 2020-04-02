@@ -67,7 +67,7 @@
               name="name"
             />
             <div
-              v-for="(option, o) in rounds[index].questions"
+              v-for="(option, o) in rounds[index].questions[i].options"
               :key="o"
               class="mt-4 flex flex-row items-center border-none"
             >
@@ -141,7 +141,7 @@
         <div class="mt-5 sm:mt-6">
           <span class="flex w-full rounded-md shadow-sm">
             <a
-              :href="'/quiz/' + quiz.id"
+              :href="'/quiz/' + quiz"
               class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5"
             >Go home</a>
           </span>
@@ -164,13 +164,6 @@ export default {
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
-            { question: "", options: ["", "", "", ""], answer: "" }
-          ]
-        },
-        {
-          round: "",
-          questions: [
-            { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" }
@@ -182,12 +175,27 @@ export default {
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" }
           ]
         },
         {
           round: "",
           questions: [
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" }
+          ]
+        },
+        {
+          round: "",
+          questions: [
+            { question: "", options: ["", "", "", ""], answer: "" },
+            { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },
             { question: "", options: ["", "", "", ""], answer: "" },

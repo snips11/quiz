@@ -24,4 +24,9 @@ class QuizMaster extends Model
      {
          return $this->hasOne('App\QuizScore');
      }
+
+     public function first_round()
+     {
+         return $this->hasOne('App\Round');
+     }
 }

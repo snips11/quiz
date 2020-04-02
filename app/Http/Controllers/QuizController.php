@@ -16,9 +16,19 @@ use App\Option;
 
 class QuizController extends Controller
 {
-    public function index(Quiz $quiz, User $user, Round $round){
-        $round = $round->load('questions.options');
-        return view('quiz.index', compact('round', 'quiz', 'user'));
+    public function index(Quiz $quiz, QuizMaster $quiz_master, Round $quiz_round){
+        $round = Round::where('quiz_master_id', $quiz_master->id)->where('round', $quiz_round->id)->with('questions.options')->first();
+
+        if($quiz_round->id == 1){
+            QuizScore::create([
+                "user_id" => auth()->user()->id,
+                "quiz_master_id" => $quiz_master->id,
+                "quiz_id" => $quiz->id,
+                "score" => 0
+            ]);
+        }
+
+        return view('quiz.index', compact('round', 'quiz', 'quiz_master'));
     }
 
     public function createLeague(){
@@ -63,11 +73,12 @@ class QuizController extends Controller
             "quiz_date" => Carbon::now()
         ]);
 
-        foreach($request->rounds as $round){
+        foreach($request->rounds as $key => $round){
 
             $created_round = Round::create([
                 "quiz_master_id" => $quiz_master->id,
-                "name" => $round['round']
+                "name" => $round['round'],
+                "round" => $key + 1
             ]);
 
             foreach ($round['questions'] as $key => $question) {
@@ -103,11 +114,12 @@ class QuizController extends Controller
         return view('quiz.show', compact('quiz'));
     }
 
-    public function showMaster(Quiz $quiz, User $user){
-        return view('quiz.show_master', compact('quiz', 'user'));
+    public function showMaster(Quiz $quiz, QuizMaster $quiz_master){
+        $master = $quiz_master->load(['user', 'first_round']);
+        return view('quiz.show_master', compact('quiz', 'master'));
     }
 
-    public function store(Quiz $quiz, User $user, Round $round, Request $request){
+    public function store(Quiz $quiz, QuizMaster $user, Round $round, Request $request){
         $quiz_score = QuizScore::where('user_id', auth()->user()->id)->where('quiz_id', $quiz->id)->first();
 
         $score = $quiz_score->score;
@@ -123,9 +135,19 @@ class QuizController extends Controller
             ]);     
         }
 
-        $quiz_score->update([
+        $quiz_score = $quiz_score->update([
             'score' => $score
         ]);
+
+        if($round->id == 4){
+            QuizUser::update([
+                "score" => $quiz_score,
+            ]);
+
+            $quiz_score->update([
+                'completed_at' => Carbon::now()
+            ]);
+        }
 
         return;
     }

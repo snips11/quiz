@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class QuizScore extends Model
 {
-    protected $fillable = [
-        'score',
-    ];
+    protected $guarded = [];
 
     public function quiz(){
         return $this->belongsTo('App\Quiz');
