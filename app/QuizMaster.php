@@ -15,6 +15,10 @@ class QuizMaster extends Model
         return $this->belongsTo('App\User');
      }
 
+     public function quiz(){
+        return $this->belongsTo('App\Quiz');
+     }
+
      public function scores()
      {
          return $this->hasMany('App\QuizScore');

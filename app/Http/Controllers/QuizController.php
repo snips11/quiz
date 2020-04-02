@@ -153,7 +153,7 @@ class QuizController extends Controller
     }
 
     public function leaderboard(QuizMaster $quiz_master){
-        $quiz_master->load(['user', 'scores' => function ($query) {
+        $quiz_master->load(['user', 'quiz', 'scores' => function ($query) {
             $query->with('user')->orderBy('score', 'desc');
         }]);
         return view('quiz.leaderboard', compact('quiz_master'));
