@@ -95,7 +95,7 @@ export default {
     return {
       number_of_questions: this.round.questions.length,
       question_number: 1,
-      seconds: 15,
+      seconds: 30,
       selected_answer: null,
       next_round: parseInt(this.round.round) + 1,
       selected_answer: null,
@@ -114,7 +114,7 @@ export default {
           this.storeAnswer(this.question_number - 1, this.selected_answer);
           this.selected_answer = null;
           this.question_number++;
-          this.seconds = 15;
+          this.seconds = 30;
           this.startCountdown();
         }
       }
