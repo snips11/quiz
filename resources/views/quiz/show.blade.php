@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 mb-10">
+<h2 class="text-3xl leading-loose font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 mb-4">
     {{$quiz->name}} League
 </h2>
+<p class="text-gray-500 font-medium mb-10 text-lg">Share Code: {{$quiz->share_code}}</p>
 <div class="bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6 mb-6">
     <div class="max-w-screen-xl mx-auto py-4 px-4 sm:px-6 lg:py-4 lg:px-8">
 

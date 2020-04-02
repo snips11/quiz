@@ -108,10 +108,16 @@
                 </div>
             </header>
             <main>
-                <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto py-6 mb-8 sm:px-6 lg:px-8">
                     <div class="px-4 py-4 sm:px-0">
                         @yield('content')
                     </div>
+                </div>
+                <div class="flex justify-center items-center flex-col py-8 bg-blue-100">
+                    <a href="https://parsonsgreenmedia.com"><img src="http://parsonsgreenmedia.com/images/PGM_logo.png"
+                            alt="Parsons Green Media Logo" class="h-16 w-16 mb-4"></a>
+                    <p class="text-sm text-gray-500">Created for fun by <a href="https://parsonsgreenmedia.com">Parsons
+                            Green Media.</a></p>
                 </div>
             </main>
         </div>
