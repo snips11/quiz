@@ -108,8 +108,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     return _ref = {
       number_of_questions: this.round.questions.length,
-      question_number: 1,
-      seconds: 30,
+      question_number: 4,
+      seconds: 20,
       selected_answer: null,
       next_round: parseInt(this.round.round) + 1
     }, _defineProperty(_ref, "selected_answer", null), _defineProperty(_ref, "answers", []), _ref;
@@ -129,7 +129,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.storeAnswer(this.question_number - 1, this.selected_answer);
           this.selected_answer = null;
           this.question_number++;
-          this.seconds = 30;
+          this.seconds = 20;
           this.startCountdown();
         }
       }
@@ -207,7 +207,7 @@ var render = function() {
     _vm._v(" "),
     _vm.question_number > _vm.number_of_questions
       ? _c("div", [
-          this.round.id == 4
+          this.round.round == 4
             ? _c(
                 "div",
                 {
@@ -251,7 +251,7 @@ var render = function() {
                                 staticClass:
                                   "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
                                 attrs: {
-                                  href: "/quiz/" + this.quiz + "/leaderboard/"
+                                  href: "/quiz/" + this.master + "/leaderboard"
                                 }
                               },
                               [_vm._v("Scores")]

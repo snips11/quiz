@@ -139,7 +139,7 @@ class QuizController extends Controller
             'score' => $score
         ]);
 
-        if($round->id == 4){
+        if($round->round == 4){
             QuizUser::update([
                 "score" => $quiz_score,
             ]);
@@ -152,8 +152,10 @@ class QuizController extends Controller
         return;
     }
 
-    public function leaderboard(Quiz $quiz){
-        $quiz = QuizScore::orderBy('score', 'desc')->get();
-        return view('quiz.leaderboard', compact('quiz'));
+    public function leaderboard(QuizMaster $quiz_master){
+        $quiz_master->load(['user', 'scores' => function ($query) {
+            $query->with('user')->orderBy('score', 'desc');
+        }]);
+        return view('quiz.leaderboard', compact('quiz_master'));
     }
 }

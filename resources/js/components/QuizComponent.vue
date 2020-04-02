@@ -11,7 +11,7 @@
     <div v-if="question_number > number_of_questions">
       <div
         class="bg-gray-100 rounded-lg px-4 py-5 border-gray-200 sm:px-6"
-        v-if="this.round.id == 4"
+        v-if="this.round.round == 4"
       >
         <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <h2
@@ -21,7 +21,7 @@
           <div class="mt-8 flex justify-center">
             <div class="inline-flex rounded-md shadow">
               <a
-                :href="'/quiz/' + this.quiz + '/leaderboard/'"
+                :href="'/quiz/' + this.master +'/leaderboard'"
                 class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
               >Scores</a>
             </div>
@@ -94,8 +94,8 @@ export default {
   data: function() {
     return {
       number_of_questions: this.round.questions.length,
-      question_number: 1,
-      seconds: 30,
+      question_number: 4,
+      seconds: 20,
       selected_answer: null,
       next_round: parseInt(this.round.round) + 1,
       selected_answer: null,
@@ -114,7 +114,7 @@ export default {
           this.storeAnswer(this.question_number - 1, this.selected_answer);
           this.selected_answer = null;
           this.question_number++;
-          this.seconds = 30;
+          this.seconds = 20;
           this.startCountdown();
         }
       }
