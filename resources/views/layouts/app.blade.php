@@ -97,10 +97,14 @@
                 </div>
             </nav>
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div
+                    class="max-w-7xl w-full mx-auto py-6 px-4 sm:px-6 flex flex-row justify-between items-center lg:px-8">
                     <h1 class="text-3xl font-bold leading-tight text-gray-800">
                         Hey, {{auth()->user()->name}}!
                     </h1>
+                    <a href="/create-quiz-league"
+                        class="inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-indigo-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150 sm:text-sm sm:leading-5">Create
+                        your own quiz league</a>
                 </div>
             </header>
             <main>
