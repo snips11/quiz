@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 
 class resetPassword extends Command
 {
@@ -38,7 +39,7 @@ class resetPassword extends Command
     public function handle()
     {
         \App\User::find($this->argument('user'))->update([
-            "password" => $this->argument('password')
+            "password" => Hash::make($this->argument('password'))
         ]);
     }
 }
