@@ -37,7 +37,7 @@ class resetPassword extends Command
      */
     public function handle()
     {
-        User::find($this->argument('user'))->update([
+        \App\User::find($this->argument('user'))->update([
             "password" => $this->argument('password')
         ]);
     }
