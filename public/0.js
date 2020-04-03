@@ -108,7 +108,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     return _ref = {
       number_of_questions: this.round.questions.length,
-      question_number: 4,
+      question_number: 1,
       seconds: 20,
       selected_answer: null,
       next_round: parseInt(this.round.round) + 1
