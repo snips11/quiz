@@ -20,10 +20,10 @@
           <p class="text-gray-600 font-medium mt-6 leading-loose">Lets go see the scores!!!</p>
           <div class="mt-8 flex justify-center">
             <div class="inline-flex rounded-md shadow">
-              <a
-                :href="'/quiz/' + this.master +'/leaderboard'"
+              <button
+                @click="submitAnswers"
                 class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-              >Scores</a>
+              >Scores</button>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default {
       this.round.questions.map(question => {
         this.answers.push({
           question: question.id,
-          answer: 0
+          answer: null
         });
       });
     },
@@ -145,6 +145,9 @@ export default {
         }
       })
         .then(response => {
+          if (this.round.round == 4) {
+            window.location.replace("/quiz/" + this.master + "/leaderboard");
+          }
           window.location.replace(
             "/quiz/" +
               this.quiz +

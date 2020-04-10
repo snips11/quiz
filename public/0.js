@@ -143,7 +143,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.round.questions.map(function (question) {
         _this2.answers.push({
           question: question.id,
-          answer: 0
+          answer: null
         });
       });
     },
@@ -157,6 +157,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           answers: this.answers
         }
       }).then(function (response) {
+        if (_this3.round.round == 4) {
+          window.location.replace("/quiz/" + _this3.master + "/leaderboard");
+        }
+
         window.location.replace("/quiz/" + _this3.quiz + "/quiz-master/" + _this3.master + "/round/" + _this3.next_round);
       })["catch"](function (error) {
         console.log(error);
@@ -246,13 +250,11 @@ var render = function() {
                           { staticClass: "inline-flex rounded-md shadow" },
                           [
                             _c(
-                              "a",
+                              "button",
                               {
                                 staticClass:
                                   "inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out",
-                                attrs: {
-                                  href: "/quiz/" + this.master + "/leaderboard"
-                                }
+                                on: { click: _vm.submitAnswers }
                               },
                               [_vm._v("Scores")]
                             )
