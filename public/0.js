@@ -97,12 +97,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.startCountdown();
     this.prepareAnswers();
   },
-  props: ["round", "quiz", "master"],
+  props: ["round", "quiz", "master", "score"],
   data: function data() {
     var _ref;
 
@@ -159,9 +163,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (response) {
         if (_this3.round.round == 4) {
           window.location.replace("/quiz/" + _this3.master + "/leaderboard");
+        } else {
+          window.location.replace("/quiz/" + _this3.quiz + "/quiz-master/" + _this3.master + "/round/" + _this3.next_round);
         }
-
-        window.location.replace("/quiz/" + _this3.quiz + "/quiz-master/" + _this3.master + "/round/" + _this3.next_round);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -187,12 +191,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", { staticClass: "text-xl text-gray-600 mb-4" }, [
+    _c("h1", { staticClass: "text-xl text-gray-600 mb-2" }, [
       _c("span", { staticClass: "font-bold text-2xl text-gray-700" }, [
         _vm._v("Round:")
       ]),
       _vm._v("\n    " + _vm._s(_vm.round.name) + "\n  ")
     ]),
+    _vm._v(" "),
+    _vm.round.round != 1
+      ? _c("p", { staticClass: "text-lg text-gray-600 mb-4" }, [
+          _vm._v("Score after previous round: " + _vm._s(_vm.score))
+        ])
+      : _vm._e(),
     _vm._v(" "),
     this.question_number <= this.number_of_questions
       ? _c("h3", { staticClass: "text-xl text-gray-600 mb-4" }, [

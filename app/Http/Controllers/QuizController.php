@@ -13,6 +13,7 @@ use App\QuizMaster;
 use Carbon\Carbon;
 use App\Question;
 use App\Option;
+use App\QuizUser;
 
 class QuizController extends Controller
 {
@@ -28,7 +29,9 @@ class QuizController extends Controller
             ]);
         }
 
-        return view('quiz.index', compact('round', 'quiz', 'quiz_master'));
+        $score = QuizScore::where('quiz_master_id', $quiz_master->id)->where('quiz_id', $quiz->id)->where('user_id', auth()->user()->id)->first();
+
+        return view('quiz.index', compact('round', 'quiz', 'quiz_master', 'score'));
     }
 
     public function createLeague(){
@@ -120,7 +123,7 @@ class QuizController extends Controller
     }
 
     public function store(Quiz $quiz, QuizMaster $user, Round $round, Request $request){
-        $quiz_score = QuizScore::where('user_id', auth()->user()->id)->where('quiz_id', $quiz->id)->first();
+        $quiz_score = QuizScore::where('user_id', auth()->user()->id)->where('quiz_id', $quiz->id)->where('quiz_master_id', $user->id)->first();
 
         $score = $quiz_score->score;
 
@@ -135,13 +138,14 @@ class QuizController extends Controller
             ]);     
         }
 
-        $quiz_score = $quiz_score->update([
+        $quiz_score->update([
             'score' => $score
         ]);
 
         if($round->round == 4){
-            QuizUser::update([
-                "score" => $quiz_score,
+            $quiz_user = QuizUser::where('user_id', auth()->user()->id)->where('quiz_id', $quiz->id)->first();
+            $quiz_user->update([
+                "score" => $quiz_user->score + $score,
             ]);
 
             $quiz_score->update([

@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h1 class="text-xl text-gray-600 mb-4">
+    <h1 class="text-xl text-gray-600 mb-2">
       <span class="font-bold text-2xl text-gray-700">Round:</span>
       {{ round.name }}
     </h1>
+    <p
+      class="text-lg text-gray-600 mb-4"
+      v-if="round.round != 1"
+    >Score after previous round: {{ score }}</p>
     <h3 class="text-xl text-gray-600 mb-4" v-if="this.question_number <= this.number_of_questions">
       <span class="font-bold text-xl text-gray-700">Question:</span>
       {{ question_number }}/{{ number_of_questions }}
@@ -90,7 +94,7 @@ export default {
     this.startCountdown();
     this.prepareAnswers();
   },
-  props: ["round", "quiz", "master"],
+  props: ["round", "quiz", "master", "score"],
   data: function() {
     return {
       number_of_questions: this.round.questions.length,
@@ -147,15 +151,16 @@ export default {
         .then(response => {
           if (this.round.round == 4) {
             window.location.replace("/quiz/" + this.master + "/leaderboard");
+          } else {
+            window.location.replace(
+              "/quiz/" +
+                this.quiz +
+                "/quiz-master/" +
+                this.master +
+                "/round/" +
+                this.next_round
+            );
           }
-          window.location.replace(
-            "/quiz/" +
-              this.quiz +
-              "/quiz-master/" +
-              this.master +
-              "/round/" +
-              this.next_round
-          );
         })
         .catch(error => {
           console.log(error);

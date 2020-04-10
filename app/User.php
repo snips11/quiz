@@ -43,6 +43,6 @@ class User extends Authenticatable
     
     public function quizes()
     {
-        return $this->belongsToMany('App\Quiz', 'quiz_users');
+        return $this->belongsToMany('App\Quiz', 'quiz_users')->withTimestamps();
     }
 }
